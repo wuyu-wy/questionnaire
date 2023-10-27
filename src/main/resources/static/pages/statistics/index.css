@@ -1,0 +1,84 @@
+.flex-container {
+    display: flex;
+    justify-content: space-around; /* Adjust the horizontal spacing */
+    align-items: center; /* Center the items vertically */
+    flex-direction: row; /* Arrange items horizontally */
+}
+
+.problem {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+    width: 100%;
+    height: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.questionnaire-title {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+    width: 100%;
+    height: 100%;
+}
+
+.button-container {
+    margin-top: 20px; /* Adjust margin-top */
+}
+
+.button-group {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+    margin-top: 20px;
+}
+
+.questionnaire-description {
+    text-align: center; /* Center align the text */
+    margin-bottom: 20px; /* Increase the distance from the below label */
+}
+
+.button-group {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+}
+
+button {
+    padding: 12px 24px;
+    margin: 10px;
+    background-color: #87CEFA;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #87CEFA;
+}

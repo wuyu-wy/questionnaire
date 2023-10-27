@@ -1,0 +1,9 @@
+.form-group {
+  margin-bottom: 40px !important;
+}
+.form-control small-textarea {
+  width: 20px;
+  height: 10px;
+}
+
+

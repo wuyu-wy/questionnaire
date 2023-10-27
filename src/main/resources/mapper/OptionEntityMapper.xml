@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sisp.dao.OptionEntityMapper">
+  <resultMap id="OptionMap" type="com.sisp.dao.entity.OptionEntity">
+
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="question_id" jdbcType="VARCHAR" property="questionId" />
+    <result column="choose_term" jdbcType="VARCHAR" property="chooseTerm" />
+    <result column="fraction" jdbcType="VARCHAR" property="fraction" />
+    <result column="left_title" jdbcType="VARCHAR" property="leftTitle"/>
+    <result column="order_id" jdbcType="VARCHAR" property="orderId"/>
+
+
+  </resultMap>
+
+  <insert id="insert" parameterType="com.sisp.dao.entity.OptionEntity" >
+
+    insert into option_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="questionId != null ">
+        question_id,
+      </if>
+      <if test="chooseTerm != null">
+        choose_term,
+      </if>
+      <if test="fraction != null">
+        fraction,
+      </if>
+      <if test="leftTitle != null">
+        left_title,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="questionId != null ">
+        #{questionId,jdbcType=VARCHAR},
+      </if>
+      <if test="chooseTerm != null">
+        #{chooseTerm,jdbcType=VARCHAR},
+      </if>
+      <if test="fraction != null">
+        #{fraction,jdbcType=VARCHAR},
+      </if>
+      <if test="leftTitle != null">
+        #{leftTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+
+    </trim>
+  </insert>
+
+
+  <select id="queryOptionList" resultMap="OptionMap" parameterType="com.sisp.dao.entity.OptionEntity" >
+    select *
+    from option_info
+    <where>
+
+      <if test="questionId != null and questionId != ''">
+        and question_id = #{questionId}
+      </if>
+
+    </where>
+
+    ORDER BY order_id ASC
+
+  </select>
+
+
+
+
+
+</mapper>

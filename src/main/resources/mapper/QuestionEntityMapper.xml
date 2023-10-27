@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sisp.dao.QuestionEntityMapper">
+  <resultMap id="QuestionMap" type="com.sisp.dao.entity.QuestionEntity">
+
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="questionnaire_id" jdbcType="VARCHAR" property="questionnaireId" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="problem_name" jdbcType="VARCHAR" property="problemName" />
+    <result column="must_answer" jdbcType="VARCHAR" property="mustAnswer" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId"/>
+
+
+  </resultMap>
+
+  <insert id="insert" parameterType="com.sisp.dao.entity.QuestionEntity" >
+
+    insert into question_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="questionnaireId != null ">
+        questionnaire_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="problemName != null">
+        problem_name,
+      </if>
+      <if test="mustAnswer != null">
+        must_answer,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="questionnaireId != null ">
+        #{questionnaireId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="problemName != null">
+        #{problemName,jdbcType=VARCHAR},
+      </if>
+      <if test="mustAnswer != null">
+        #{mustAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+
+
+    </trim>
+  </insert>
+
+
+  <select id="queryQuestionList" resultMap="QuestionMap" parameterType="com.sisp.dao.entity.QuestionEntity" >
+    select *
+    from question_info
+    <where>
+      <if test="questionnaireId != null and questionnaireId != ''">
+        and questionnaire_id = #{questionnaireId}
+      </if>
+
+
+
+    </where>
+    ORDER BY order_id ASC
+
+  </select>
+
+
+
+
+</mapper>

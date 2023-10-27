@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sisp.dao.AnswerMessageEntityMapper">
+  <resultMap id="AnswerMessageMap" type="com.sisp.dao.entity.AnswerMessageEntity">
+
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="questionnaire_id" jdbcType="VARCHAR" property="questionnaireId" />
+    <result column="questionnaire_name" jdbcType="VARCHAR" property="questionnaireName" />
+    <result column="answerer_id" jdbcType="VARCHAR" property="answererId" />
+    <result column="answerer_name" jdbcType="VARCHAR" property="answererName"/>
+    <result column="answer_time" jdbcType="TIMESTAMP" property="answerTime"/>
+    <result column="project_id" jdbcType="VARCHAR" property="projectId"/>
+
+  </resultMap>
+
+  <select id="queryAnswerMessageList" resultMap="AnswerMessageMap" parameterType="com.sisp.dao.entity.AnswerMessageEntity" >
+    select *
+    from answer_message_info
+    <where>
+      <if test="projectId != null and projectId != ''">
+        and project_id = #{projectId}
+      </if>
+
+      <if test="answererName != null and answererName != ''">
+        and answerer_name = #{answererName}
+      </if>
+
+    </where>
+
+</select>
+
+
+
+  <select id="pageQueryAnswerMessageList" resultMap="AnswerMessageMap"   parameterType="com.sisp.dao.entity.AnswerMessageEntity">
+    select *
+    from answer_message_info
+    <where>
+
+
+      <if test="answererName != null and answererName != ''">
+        and answerer_name = #{answererName}
+      </if>
+
+      <if test="projectId != null and projectId != ''">
+        and project_id = #{projectId}
+      </if>
+
+    </where>
+
+    LIMIT #{pageSize} OFFSET #{offset}
+
+
+
+  </select>
+
+
+
+  <select id="calculateAnswerMessage" resultType="java.lang.Integer">
+    SELECT count(*)
+    FROM answer_message_info
+    WHERE questionnaire_id = #{questionnaireId} AND answerer_id = #{answererId};
+  </select>
+
+
+
+
+
+
+  <insert id="insert" parameterType="com.sisp.dao.entity.AnswerMessageEntity" >
+
+    insert into answer_message_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="questionnaireId != null">
+        questionnaire_id,
+      </if>
+      <if test="questionnaireName != null">
+        questionnaire_name,
+      </if>
+      <if test="answererId != null">
+        answerer_id,
+      </if>
+      <if test="answererName != null">
+        answerer_name,
+      </if>
+      <if test="answerTime != null">
+        answer_time,
+      </if>
+      <if test="projectId != null">
+        project_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="questionnaireId != null">
+        #{questionnaireId,jdbcType=VARCHAR},
+      </if>
+      <if test="questionnaireName != null">
+        #{questionnaireName,jdbcType=VARCHAR},
+      </if>
+      <if test="answererId != null">
+        #{answererId,jdbcType=VARCHAR},
+      </if>
+      <if test="answererName != null">
+        #{answererName,jdbcType=VARCHAR},
+      </if>
+      <if test="answerTime != null">
+        #{answerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectId != null">
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+
+</mapper>
