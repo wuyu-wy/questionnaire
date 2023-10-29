@@ -6,6 +6,7 @@
 ### Guides
 
 项目数据库在myweb.sql中，账号密码可以从数据库中进行查看。
+
 ![image](https://github.com/wuyu-wy/questionnaire/assets/109972728/7988033d-c920-4d7e-9584-5a45b9473716)
 
 具体情况请自己摸索。
