@@ -1,4 +1,3 @@
-![image](https://github.com/wuyu-wy/questionnaire/assets/109972728/98ffa052-6a42-4b76-8574-7d3ccd779c31)# Getting Started
 
 ### Reference Documentation
 
