@@ -31,7 +31,15 @@
 
 ![image](https://github.com/wuyu-wy/questionnaire/assets/109972728/d837228b-e42f-4acc-988f-968200d0615b)
 
+在此可查看你建立的问卷，并可以预览，发布，删除操作，发布以后会自动生成二维码与链接。
 
+![image](https://github.com/wuyu-wy/questionnaire/assets/109972728/df56c113-97cd-45db-9bd3-a57fbbfc8400)
+
+点击统计可查看各个选项结果情况，也可进行同类问题统计
+
+![image](https://github.com/wuyu-wy/questionnaire/assets/109972728/4c8b1322-cad1-4e7e-adca-a001503683a9)
+
+就写到这里吧，大部分以及提及了，具体情况还请自己run去探索。
 
 
 
